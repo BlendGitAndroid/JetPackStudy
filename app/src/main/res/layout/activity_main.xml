@@ -17,4 +17,9 @@
         style="@style/main_style"
         android:text="Navigation" />
 
+    <Button
+        android:id="@+id/viewModel"
+        style="@style/main_style"
+        android:text="ViewModel" />
+
 </LinearLayout>
