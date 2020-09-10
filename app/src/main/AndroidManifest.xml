@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".viewmodel.ViewModelMainActivity"></activity>
+        <activity android:name=".livedata.LiveDataMainActivity"></activity>
+        <activity android:name=".viewmodel.ViewModelMainActivity" />
         <activity android:name=".navigation.NavigationMainActivity" />
         <activity android:name=".lifecycle.LifeCycleMainActivity" />
         <activity android:name=".MainActivity">

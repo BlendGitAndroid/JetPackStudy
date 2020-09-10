@@ -22,4 +22,9 @@
         style="@style/main_style"
         android:text="ViewModel" />
 
+    <Button
+        android:id="@+id/liveData"
+        style="@style/main_style"
+        android:text="LiveData" />
+
 </LinearLayout>
