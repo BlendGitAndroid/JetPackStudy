@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.blend.jetpackstudy.lifecycle.LifeCycleMainActivity;
 import com.blend.jetpackstudy.livedata.LiveDataMainActivity;
 import com.blend.jetpackstudy.navigation.NavigationMainActivity;
+import com.blend.jetpackstudy.room.RoomMainActivity;
 import com.blend.jetpackstudy.viewmodel.ViewModelMainActivity;
 
 
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button navigation;
     private Button viewModel;
     private Button liveData;
+    private Button room;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         navigation = findViewById(R.id.navigation);
         viewModel = findViewById(R.id.viewModel);
         liveData = findViewById(R.id.liveData);
+        room = findViewById(R.id.room);
         lifecycle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +54,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, LiveDataMainActivity.class));
+            }
+        });
+        room.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, RoomMainActivity.class));
             }
         });
 
