@@ -1,6 +1,7 @@
 package com.blend.jetpackstudy;
 
 import android.app.Application;
+import android.content.Context;
 
 import androidx.lifecycle.ProcessLifecycleOwner;
 
@@ -13,9 +14,16 @@ import com.blend.jetpackstudy.lifecycle.ApplicationObserver;
  */
 public class MyApplication extends Application {
 
+    private static Context context;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        context = getApplicationContext();
         ProcessLifecycleOwner.get().getLifecycle().addObserver(new ApplicationObserver());
+    }
+
+    public static Context getConText() {
+        return context;
     }
 }

@@ -37,4 +37,9 @@
         style="@style/main_style"
         android:text="WorkManager" />
 
+    <Button
+        android:id="@+id/dataBinding"
+        style="@style/main_style"
+        android:text="DataBinding" />
+
 </LinearLayout>
