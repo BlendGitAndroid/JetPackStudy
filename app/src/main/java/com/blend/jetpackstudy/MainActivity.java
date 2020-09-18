@@ -16,6 +16,10 @@ import com.blend.jetpackstudy.viewmodel.ViewModelMainActivity;
 import com.blend.jetpackstudy.workmanager.WorkManagerMainActivity;
 
 
+/**
+ * https://juejin.im/user/1503787635450584/posts
+ * 这个人的博客，讲解了JetPack的知识和对Android的反思，等把JetPack那本书看完，就着手看这个博客。
+ */
 public class MainActivity extends AppCompatActivity {
 
 
