@@ -5,21 +5,21 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".pre.MyApplication"
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.blend.jetpackstudy.pre.databinding.DataBindingMainActivity"></activity>
-        <activity android:name=".pre.workmanager.WorkManagerMainActivity" />
-        <activity android:name=".pre.room.RoomMainActivity" />
-        <activity android:name=".pre.livedata.LiveDataMainActivity" />
-        <activity android:name=".pre.viewmodel.ViewModelMainActivity" />
-        <activity android:name=".pre.navigation.NavigationMainActivity" />
-        <activity android:name=".pre.lifecycle.LifeCycleMainActivity" />
-        <activity android:name=".pre.MainActivity">
+        <activity android:name=".databinding.DataBindingMainActivity"></activity>
+        <activity android:name=".workmanager.WorkManagerMainActivity" />
+        <activity android:name=".room.RoomMainActivity" />
+        <activity android:name=".livedata.LiveDataMainActivity" />
+        <activity android:name=".viewmodel.ViewModelMainActivity" />
+        <activity android:name=".navigation.NavigationMainActivity" />
+        <activity android:name=".lifecycle.LifeCycleMainActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
