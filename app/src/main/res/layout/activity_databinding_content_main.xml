@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:context=".databinding.DataBindingMainActivity">
+        tools:context="com.blend.jetpackstudy.pre.databinding.DataBindingMainActivity">
 
         <TextView
             android:id="@+id/titleTv"

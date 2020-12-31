@@ -1,0 +1,28 @@
+package com.blend.jetpackstudy.pre.databinding;
+
+import android.graphics.Color;
+import android.text.TextUtils;
+import android.widget.ImageView;
+
+import androidx.databinding.BindingAdapter;
+
+import com.blend.jetpackstudy.pre.MyApplication;
+import com.bumptech.glide.Glide;
+
+public class ImageViewBindingAdapter {
+
+    @BindingAdapter("image")
+    public static void setImage(ImageView imageView, String imageUrl) {
+        if (!TextUtils.isEmpty(imageUrl)) {
+            Glide.with(MyApplication.getConText()).load(imageUrl).into(imageView);
+        } else {
+            imageView.setBackgroundColor(Color.RED);
+        }
+    }
+
+    @BindingAdapter("image")
+    public static void setImage(ImageView imageView, int imageResource) {
+        imageView.setImageResource(imageResource);
+    }
+
+}
