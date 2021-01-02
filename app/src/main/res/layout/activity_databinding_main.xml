@@ -8,8 +8,12 @@
         <import type="com.blend.jetpackstudy.databinding.BookRatingUtil" />
 
         <variable
-            name="book"
+            name="booka"
             type="com.blend.jetpackstudy.databinding.Book" />
+
+        <variable
+            name="myPadding"
+            type="Integer" />
 
         <variable
             name="EventHandler"
@@ -35,21 +39,22 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
-            android:text="@{book.title}" />
+            android:padding="@{myPadding}"
+            android:text="@{booka.title}" />
 
         <TextView
             android:id="@+id/authorTv"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
-            android:text="@{book.author}" />
+            android:text="@{booka.author}" />
 
         <TextView
             android:id="@+id/ratingTv"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
-            android:text="@{BookRatingUtil.getRatingString(book.rating)}" />
+            android:text="@{BookRatingUtil.getRatingString(booka.rating)}" />
 
         <Button
             android:id="@+id/clickBtn"
@@ -61,7 +66,7 @@
 
         <include
             layout="@layout/activity_databinding_content_main"
-            app:book="@{book}" />
+            app:book="@{booka}" />
 
         <ImageView
             android:layout_width="100dp"

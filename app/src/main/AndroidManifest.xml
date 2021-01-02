@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".databinding.DataBindingMainActivity"></activity>
+        <activity android:name=".databinding.TwoWayBindActivity"></activity>
+        <activity android:name=".databinding.DataBindingMainActivity" />
         <activity android:name=".workmanager.WorkManagerMainActivity" />
         <activity android:name=".room.RoomMainActivity" />
         <activity android:name=".livedata.LiveDataMainActivity" />

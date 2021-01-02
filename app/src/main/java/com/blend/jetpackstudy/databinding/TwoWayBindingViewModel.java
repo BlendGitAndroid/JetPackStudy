@@ -17,8 +17,8 @@ public class TwoWayBindingViewModel extends BaseObservable {
 
     private LoginModel mLoginModel;
 
-    public TwoWayBindingViewModel(LoginModel loginModel) {
-        mLoginModel = loginModel;
+    public TwoWayBindingViewModel() {
+        mLoginModel = new LoginModel();
         mLoginModel.userName = "Blend";
     }
 

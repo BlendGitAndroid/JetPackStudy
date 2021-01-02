@@ -25,4 +25,13 @@ public class ImageViewBindingAdapter {
         imageView.setImageResource(imageResource);
     }
 
+    @BindingAdapter(value = {"image", "defaultImageResource"}, requireAll = false)
+    public static void setImage(ImageView imageView, String imageUrl, int imageResource) {
+        if (TextUtils.isEmpty(imageUrl)) {
+            Glide.with(MyApplication.getConText()).load(imageUrl).into(imageView);
+        } else {
+            imageView.setImageResource(imageResource);
+        }
+    }
+
 }
