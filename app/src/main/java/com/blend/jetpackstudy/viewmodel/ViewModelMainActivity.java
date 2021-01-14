@@ -3,6 +3,7 @@ package com.blend.jetpackstudy.viewmodel;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -11,7 +12,7 @@ import com.blend.jetpackstudy.R;
 /**
  * ViewModel：它是介于View（视图）和Model（数据模型）之间的一个东西。它起到了桥梁的作用，使视图和数据既能够分离开，也能够保持通信。
  * 是专门用于存放应用程序页面所需的数据。ViewModel独立于配置变化。这意味着，屏幕旋转所导致的Activity重建，并不会影响ViewModel的
- * 生命周期。
+ * 生命周期。ViewModel并没有和任何UI想绑定，也不会和任何生命周期相绑定。
  * <p>
  * 如果希望在ViewModel中使用Context，该怎么办呢？
  * 可以使用AndroidViewModel类，它继承自ViewModel，并接收Application作为Context。这意味着，它的生命周期和Application是一样的，
@@ -57,4 +58,5 @@ public class ViewModelMainActivity extends AppCompatActivity {
         });
         viewModel.startTiming();
     }
+
 }

@@ -3,6 +3,7 @@ package com.blend.jetpackstudy.livedata;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.MutableLiveData;
@@ -21,12 +22,14 @@ import com.blend.jetpackstudy.R;
  * 务逻辑，它只关心需要展示的数据是什么，并且希望在数据发生变化时，能及时得到通知并做出更新。LiveData的作用就是，在ViewModel
  * 中的数据发生变化时通知页面。因此，LiveData通常被放在ViewModel中使用，用于包装ViewModel中那些需要被外界观察的数据。我们
  * 从LiveData（实时数据）这个名字，也能大概推测出它的特性与作用。
- *
+ * <p>
  * ViewModel+LiveData实现Fragment间通信。
  * Fragment可以被看作Activity的子页面，即一个Activity中可以包含多个Fragment。这些Fragment彼此独立，但是又都属于同一个Activity。
  * 基于ViewModel和Fragment组件的这些特性，我们可以巧妙地利用LiveData，实现同一个Activity中的不同Fragment间的通信。
  */
 public class LiveDataMainActivity extends AppCompatActivity {
+
+    private static final String LIVE_DATA_TEST = "live_data_test";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,20 @@ public class LiveDataMainActivity extends AppCompatActivity {
                 liveData.setValue(0);
             }
         });
-        timerWithLiveDataViewModel.startTiming();
+        // timerWithLiveDataViewModel.startTiming();
+
+        findViewById(R.id.liveDataBusBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LiveDataBus.getInstance().with(LIVE_DATA_TEST, String.class).setValue("Blend Test");
+            }
+        });
+        LiveDataBus.getInstance().with(LIVE_DATA_TEST, String.class).observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                Toast.makeText(LiveDataMainActivity.this, s, Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }
