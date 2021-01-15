@@ -1,5 +1,7 @@
 package com.blend.jetpackstudy.livedata;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
@@ -29,6 +31,11 @@ class LiveDataBusX {
         return (BusMutiableLiveData<T>) bus.get(key);
     }
 
+    /**
+     * 当LiveData调用observe方法添加观察者的时候，使用HOOK技术，使ObserverWrapper的mLastVersion等于LiveData的Version
+     *
+     * @param <T>
+     */
     public static class BusMutiableLiveData<T> extends MutableLiveData<T> {
         @Override
         public void observe(@NonNull LifecycleOwner owner, @NonNull Observer observer) {
@@ -40,15 +47,17 @@ class LiveDataBusX {
             try {
                 //1.得到mLastVersion
                 Class<LiveData> liveDataClass = LiveData.class;
+                //获取到字段
                 Field mObserversFeild = liveDataClass.getDeclaredField("mObservers");
                 mObserversFeild.setAccessible(true);
-                //获取到这个成员变量的对象
+                //获取到这个成员变量对象的值
                 Object mObserversObject = mObserversFeild.get(this);
                 //得到map对应的class对象
                 Class<?> mObserversClass = mObserversObject.getClass();
                 //需要执行get方法
                 Method get = mObserversClass.getDeclaredMethod("get", Object.class);
                 get.setAccessible(true);
+                //调用map的get方法，得到Entry<K, V>键值对
                 Object invokeEntry = get.invoke(mObserversObject, observer);
 
                 Object observerWraper = null;
@@ -59,7 +68,7 @@ class LiveDataBusX {
                 if (observerWraper == null) {
                     throw new NullPointerException("observerWraper is null!");
                 }
-                //得到ObserveWraper的类对象 ,编译擦除问题
+                //之前得到的是LifecycleBoundObserver，getSuperclass得到ObserverWrapper对象
                 Class<?> superclass = observerWraper.getClass().getSuperclass();
                 Field mLastVersion = superclass.getDeclaredField("mLastVersion");
                 mLastVersion.setAccessible(true);

@@ -62,10 +62,10 @@ public class LiveDataMainActivity extends AppCompatActivity {
         findViewById(R.id.liveDataBusBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LiveDataBus.getInstance().with(LIVE_DATA_TEST, String.class).setValue("Blend Test");
+                LiveDataBusX.getInstance().with(LIVE_DATA_TEST, String.class).setValue("Blend Test");
             }
         });
-        LiveDataBus.getInstance().with(LIVE_DATA_TEST, String.class).observe(this, new Observer<String>() {
+        LiveDataBusX.getInstance().with(LIVE_DATA_TEST, String.class).observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
                 Toast.makeText(LiveDataMainActivity.this, s, Toast.LENGTH_SHORT).show();
