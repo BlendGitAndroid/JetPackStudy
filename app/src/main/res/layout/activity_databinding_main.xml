@@ -16,8 +16,12 @@
             type="Integer" />
 
         <variable
-            name="EventHandler"
+            name="EventHandlerListener"
             type="com.blend.jetpackstudy.databinding.EventHandleListener" />
+
+        <variable
+            name="OneWayBindingListener"
+            type="com.blend.jetpackstudy.databinding.OneWayBindingListener" />
 
         <variable
             name="networkImage"
@@ -57,16 +61,30 @@
             android:text="@{BookRatingUtil.getRatingString(booka.rating)}" />
 
         <Button
+            android:id="@+id/oneWayBindingBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:onClick="@{EventHandlerListener::onButtonClicked}"
+            android:text="Click Me" />
+
+        <Button
             android:id="@+id/clickBtn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
-            android:onClick="@{EventHandler::onButtonClicked}"
-            android:text="Click Me" />
+            android:onClick="@{OneWayBindingListener::changeBook}"
+            android:text="单向绑定" />
 
         <include
             layout="@layout/activity_databinding_content_main"
-            app:book="@{booka}" />
+            app:bookb="@{booka}" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:defaultImageResource="@{localImage}"
+            app:image2="@{networkImage}" />
 
         <ImageView
             android:layout_width="100dp"

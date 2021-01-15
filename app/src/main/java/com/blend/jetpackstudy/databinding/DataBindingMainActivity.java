@@ -47,14 +47,16 @@ public class DataBindingMainActivity extends AppCompatActivity {
         book.title = "加油";
         book.author = "Blend";
         book.rating = 2;
-        viewDataBinding.setVariable(BR.book, book);
+        viewDataBinding.setVariable(BR.booka, book);
         viewDataBinding.setBooka(book);
 
         // 通过DataBindingUtil将Activity与布局文件绑定，接着实例化EventHandleListener类，并将其传入布局文件，
         // 通过布局表达式，调用EventHandleListener中的方法。
-        viewDataBinding.setEventHandler(new EventHandleListener(this));
+        viewDataBinding.setEventHandlerListener(new EventHandleListener(this));
 
-        viewDataBinding.setMyPadding(100);
+        viewDataBinding.setOneWayBindingListener(new OneWayBindingListener(book, viewDataBinding));
+
+        viewDataBinding.setMyPadding(5);
 
         viewDataBinding.setNetworkImage("https://cn.bing.com/sa/simg/hpb/LaDigue_EN-CA1115245085_1920x1080.jpg");
         viewDataBinding.setLocalImage(R.drawable.ic_launcher_background);
