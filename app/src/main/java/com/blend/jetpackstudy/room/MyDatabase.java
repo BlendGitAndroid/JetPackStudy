@@ -12,7 +12,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 @Database(entities = {Student.class}, version = 1)
 public abstract class MyDatabase extends RoomDatabase {
 
-    private static final String DATABASE_NAME = "my_db";
+    private static final String DATABASE_NAME = "blend_db";
 
     private static MyDatabase databaseInstance;
 
@@ -29,7 +29,13 @@ public abstract class MyDatabase extends RoomDatabase {
     private static Migration MIGRATION2_3 = new Migration(1, 2) {
         @Override
         public void migrate(@NonNull SupportSQLiteDatabase database) {
-            //升级相关的操作
+            // //升级相关的操作
+            // database.execSQL("alter table student add column flag2 integer not null default 1");
+            //
+            // database.execSQL("create table student_temp (uid integer primary key not null,name text,pwd text,addressId)");
+            // database.execSQL("insert into student (uid,name,pwd,addressid)" + " select uid,name,pwd,addressid from student");
+            // database.execSQL("drop table student");
+            // database.execSQL("alter table student_temp rename to student");
         }
     };
 
