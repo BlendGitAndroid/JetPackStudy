@@ -77,6 +77,7 @@
             android:text="单向绑定" />
 
         <include
+            android:id="@+id/aaa"
             layout="@layout/activity_databinding_content_main"
             app:bookb="@{booka}" />
 

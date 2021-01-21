@@ -26,12 +26,12 @@
             android:id="@+id/toWayTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.userName}" />
+            android:text="@{viewModel.userName.userName}" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@={viewModel.userName}"
+            android:text="@={viewModel.userName.userName}"
             app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
