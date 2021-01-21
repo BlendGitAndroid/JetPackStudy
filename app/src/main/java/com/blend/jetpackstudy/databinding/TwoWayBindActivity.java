@@ -17,13 +17,17 @@ public class TwoWayBindActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // setContentView(R.layout.activity_two_way_bind);
         ActivityTwoWayBindBinding bindBinding = DataBindingUtil.setContentView(this, R.layout.activity_two_way_bind);
-        final TwoWayBindingViewModel2 twoWayBindingViewModel = new TwoWayBindingViewModel2();
+        final TwoWayBindingViewModel3 twoWayBindingViewModel = new TwoWayBindingViewModel3();
+
         bindBinding.setViewModel(twoWayBindingViewModel);
+        bindBinding.setLifecycleOwner(this);
 
         bindBinding.toWayBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                twoWayBindingViewModel.setUserName(count + " Blend");
+                LoginModel value = twoWayBindingViewModel.getLiveData().getValue();
+                value.userName += count;
+                twoWayBindingViewModel.getLiveData().setValue(value);
                 count++;
             }
         });

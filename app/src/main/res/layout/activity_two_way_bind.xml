@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.blend.jetpackstudy.databinding.TwoWayBindingViewModel2" />
+            type="com.blend.jetpackstudy.databinding.TwoWayBindingViewModel3" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -26,12 +26,12 @@
             android:id="@+id/toWayTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.userName.userName}" />
+            android:text="@{viewModel.getLiveData().userName}" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@={viewModel.userName.userName}"
+            android:text="@={viewModel.getLiveData().userName}"
             app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
