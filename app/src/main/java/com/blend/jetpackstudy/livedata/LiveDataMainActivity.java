@@ -6,8 +6,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.arch.core.util.Function;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.blend.jetpackstudy.R;
@@ -72,5 +76,26 @@ public class LiveDataMainActivity extends AppCompatActivity {
             }
         });
 
+        LiveData<String> liveDataMap = Transformations.map(liveData, new Function<Integer, String>() {
+            @Override
+            public String apply(Integer input) {
+                return input + "ss";
+            }
+        });
+
+        LiveData<String> liveDataSwitchMap = Transformations.switchMap(liveData, new Function<Integer, LiveData<String>>() {
+            @Override
+            public LiveData<String> apply(Integer input) {
+                return null;
+            }
+        });
+
+        MediatorLiveData<String> mediatorLiveData = new MediatorLiveData<String>();
+        mediatorLiveData.addSource(liveData, new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer integer) {
+
+            }
+        });
     }
 }
