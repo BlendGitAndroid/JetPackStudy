@@ -1,7 +1,5 @@
 package com.blend.jetpackstudy.livedata;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
@@ -33,6 +31,9 @@ class LiveDataBusX {
 
     /**
      * 当LiveData调用observe方法添加观察者的时候，使用HOOK技术，使ObserverWrapper的mLastVersion等于LiveData的Version
+     * <p>
+     * 为了避免粘性事件，使用hook技术，当Livedata添加观察值的时候，就是调用observe方法的时候，将LiveData的version赋值给Observer的
+     * version。因为LiveData就是判断当LiveData的version大于Observer的Version的时候，就不会回调Observer。
      *
      * @param <T>
      */
