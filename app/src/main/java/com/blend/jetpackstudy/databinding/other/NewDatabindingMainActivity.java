@@ -12,6 +12,16 @@ import com.blend.jetpackstudy.databinding.ActivityNewDatabindingMainBinding;
 
 import java.util.Random;
 
+/**
+ * DataBinding做了3件事情：
+ * 1.使用JavaPoet，将xml变成相应的类，继承自ViewDataBinding类。
+ * 在类初始化的时候根据TAG为每一个View设置名字，并且注册Choreographer。
+ * 第一次初始化设置及以后的双向监听等都是通过一个DirtFlag来进行控制的，进行相应的方法调用。
+ * 2.内存数据到UI。使用BaseObservable的setValue，通过层层回调其实就做了两件事情，
+ * 1是设置改变UI的相应的flag标志位，2是设置Choreographer，通过flag找到UI控件进行新值的设置，通知下一次进行数据刷新。
+ * 3.UI到内存。通过初始化设置的监听器，当UI改变的时候回调，然后设置给相应的内存数据，这样又到了内存数据到UI的刷新，
+ * 所以为了防止出现死循坏，需要在设置的方法上设置新旧数据不能相等的判断。
+ */
 public class NewDatabindingMainActivity extends AppCompatActivity {
 
     private ActivityNewDatabindingMainBinding mBinding;
@@ -44,6 +54,7 @@ public class NewDatabindingMainActivity extends AppCompatActivity {
         //双向绑定就是当视图发生变化的时候，也能通知到数据
         //双向绑定比单向绑定多了一个=，@={}，因为双向绑定会调用属性的get方法，所以还要提供属性的get方法
         //可以有三种方式来设置，但是现在使用的是LiveData,系统帮助我们设置了LiveData
+        //必须设置了setLifecycleOwner之后，绑定了LiveData的数据源才有效
         mBinding.setLifecycleOwner(this);
         mViewModel = new ViewModelLiveData();
         mBinding.setViewModelHandle(new LiveDataHandler());
