@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.blend.jetpackstudy.databinding.DataBindingMainActivity;
+import com.blend.jetpackstudy.databinding.other.NewDatabindingMainActivity;
 import com.blend.jetpackstudy.lifecycle.LifeCycleMainActivity;
 import com.blend.jetpackstudy.livedata.LiveDataMainActivity;
 import com.blend.jetpackstudy.navigation.NavigationMainActivity;
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         dataBinding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, DataBindingMainActivity.class));
+                startActivity(new Intent(MainActivity.this, NewDatabindingMainActivity.class));
             }
         });
     }

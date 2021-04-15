@@ -47,12 +47,14 @@ public class DataBindingMainActivity extends AppCompatActivity {
         book.title = "加油";
         book.author = "Blend";
         book.rating = 2;
+        //这个只是相当于给variable赋值，和其他的赋值都是一样的
         viewDataBinding.setVariable(BR.booka, book);
         viewDataBinding.setBooka(book);
 
         // 通过DataBindingUtil将Activity与布局文件绑定，接着实例化EventHandleListener类，并将其传入布局文件，
         // 通过布局表达式，调用EventHandleListener中的方法。
-        viewDataBinding.setEventHandlerListener(new EventHandleListener(this));
+        // viewDataBinding.setEventHandlerListener(new EventHandleListener(this));
+        viewDataBinding.setVariable(BR.EventHandlerListener, new EventHandleListener(this));
 
         viewDataBinding.setOneWayBindingListener(new OneWayBindingListener(book, viewDataBinding));
 

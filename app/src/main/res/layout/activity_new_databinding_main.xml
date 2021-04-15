@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="userInfo"
+            type="com.blend.jetpackstudy.databinding.other.User" />
+
+        <variable
+            name="goods"
+            type="com.blend.jetpackstudy.databinding.other.Goods" />
+
+        <variable
+            name="goodsHandler"
+            type="com.blend.jetpackstudy.databinding.other.NewDatabindingMainActivity.GoodsHandler" />
+
+        <variable
+            name="observableGoods"
+            type="com.blend.jetpackstudy.databinding.other.ObservableGoods" />
+
+        <variable
+            name="observerGoodsHandler"
+            type="com.blend.jetpackstudy.databinding.other.NewDatabindingMainActivity.ObservableGoodsHandler" />
+
+        <variable
+            name="viewModel"
+            type="com.blend.jetpackstudy.databinding.other.NewDatabindingMainActivity.ViewModelLiveData" />
+
+        <variable
+            name="viewModelHandle"
+            type="com.blend.jetpackstudy.databinding.other.NewDatabindingMainActivity.LiveDataHandler" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/main_style"
+            android:text="单向数据绑定" />
+
+        <TextView
+            android:id="@+id/tv_userName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{userInfo.name}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{userInfo.password}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-------------------------------------" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{goods.name}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{goods.details}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(goods.price)}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->goodsHandler.changeGoodsName()}"
+            android:text="改变属性 name 和 price"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->goodsHandler.changeGoodsDetails()}"
+            android:text="改变属性 details 和 price"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-------------------------------------" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{observableGoods.name}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{observableGoods.details}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(observableGoods.price)}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->observerGoodsHandler.changeGoodsName()}"
+            android:text='@{"改变属性name和price"}'
+            android:textAllCaps="false" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-------------------------------------" />
+
+        <TextView
+            style="@style/main_style"
+            android:text="双向数据绑定" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={goods.name}" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={observableGoods.name}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-------------------------------------" />
+
+        <TextView
+            style="@style/main_style"
+            android:text="使用liveData" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->viewModelHandle.changeLiveData()}"
+            android:text="改变LiveData"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/liveDataTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.liveData}" />
+
+        <EditText
+            android:id="@+id/liveDataEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={viewModel.liveData}" />
+    </LinearLayout>
+</layout>
