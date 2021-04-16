@@ -1,10 +1,15 @@
 package com.blend.jetpackstudy.lifecycle;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.blend.jetpackstudy.R;
+
+import java.util.concurrent.ExecutionException;
 
 /**
  * Lifecycle可以有效的避免内存泄漏和解决android生命周期的常见难题。
@@ -20,7 +25,7 @@ import com.blend.jetpackstudy.R;
 public class LifeCycleMainActivity extends AppCompatActivity {
 
     private MyLocationListener mLocationListener;
-
+    private ImageView mImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,5 +40,37 @@ public class LifeCycleMainActivity extends AppCompatActivity {
 
         //注册观察者
         getLifecycle().addObserver(mLocationListener);
+
+        mImageView = findViewById(R.id.test);
+        // 调用原生的Glide加载图片
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    //这个的生命周期是整个应用的生命周期，而且BACKGEOUND的这个缓存永远在弱引用缓存中，
+                    // 不会被调用release方法进行计数减一
+                    Bitmap bitmap = com.bumptech.glide.Glide.with(LifeCycleMainActivity.this)
+                            .asBitmap()
+                            .load("https://tse3-mm.cn.bing.net/th/id/OIP.Gzze2RWjGPoKUivyJQvTrQHaE7?pid=Api&rs=1")
+                            .submit().get();
+                    Log.e("submit: ", bitmap.toString());
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mImageView.setImageBitmap(bitmap);
+                            mImageView = null;
+                            System.gc();
+                            System.gc();
+                            Log.e("submit: ", bitmap.toString());
+                        }
+                    });
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }).start();
     }
 }
