@@ -76,6 +76,8 @@ public class LiveDataMainActivity extends AppCompatActivity {
             }
         });
 
+        //Transformations.map的原理是利用MediatorLiveData，将X类型的LiveData经过转换后变成了Y类型的LiveData，
+        //这个更加注重的是值的变化，根据旧的LiveData的值生成新的LiveData的值
         LiveData<String> liveDataMap = Transformations.map(liveData, new Function<Integer, String>() {
             @Override
             public String apply(Integer input) {
@@ -83,13 +85,17 @@ public class LiveDataMainActivity extends AppCompatActivity {
             }
         });
 
+        //Transformations.switchMap的原理也是利用MediatorLiveData，将X类型的LiveData转换成Y类型的LiveData，
+        //但是这个的返回对象是一个LiveData，这个数据更加注重的是触发，用旧的LiveData来生成新的LiveData
         LiveData<String> liveDataSwitchMap = Transformations.switchMap(liveData, new Function<Integer, LiveData<String>>() {
             @Override
             public LiveData<String> apply(Integer input) {
-                return null;
+                return new MutableLiveData<String>("ss");
             }
         });
 
+        //MediatorLiveData，用于监测当LiveData数据改变的时候，有可能这个LiveData在一个异步回调中，那么需要MediatorLiveData
+        //来检测监测这个异步回调，这个注重的是值的回调
         MediatorLiveData<String> mediatorLiveData = new MediatorLiveData<String>();
         mediatorLiveData.addSource(liveData, new Observer<Integer>() {
             @Override
