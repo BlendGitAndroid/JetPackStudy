@@ -7,11 +7,12 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.blend.jetpackstudy.databinding.other.NewDatabindingMainActivity;
+import com.blend.jetpackstudy.databinding.DatabindingMainActivity;
 import com.blend.jetpackstudy.lifecycle.LifeCycleMainActivity;
 import com.blend.jetpackstudy.livedata.LiveDataMainActivity;
 import com.blend.jetpackstudy.navigation.NavigationMainActivity;
 import com.blend.jetpackstudy.room.RoomMainActivity;
+import com.blend.jetpackstudy.viewbinding.ViewBindingActivity;
 import com.blend.jetpackstudy.viewmodel.ViewModelMainActivity;
 import com.blend.jetpackstudy.workmanager.WorkManagerMainActivity;
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Button room;
     private Button workManager;
     private Button dataBinding;
+    private Button viewBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         room = findViewById(R.id.room);
         workManager = findViewById(R.id.workManager);
         dataBinding = findViewById(R.id.dataBinding);
+        viewBinding = findViewById(R.id.viewBinding);
         lifecycle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +80,13 @@ public class MainActivity extends AppCompatActivity {
         dataBinding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, NewDatabindingMainActivity.class));
+                startActivity(new Intent(MainActivity.this, DatabindingMainActivity.class));
+            }
+        });
+        viewBinding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ViewBindingActivity.class));
             }
         });
     }

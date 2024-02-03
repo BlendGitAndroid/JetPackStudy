@@ -40,6 +40,12 @@ public class MyLifecycleOwner implements LifecycleOwner {
 
         //java8之后应该这样使用
         getLifecycle().addObserver(new DefaultLifecycleObserver() {
+
+            @Override
+            public void onCreate(@NonNull LifecycleOwner owner) {
+
+            }
+
             @Override
             public void onStart(@NonNull LifecycleOwner owner) {
 

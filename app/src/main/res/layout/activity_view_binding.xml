@@ -3,11 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".viewbinding.ViewBindingActivity">
 
     <TextView
         android:id="@+id/text"
-        android:layout_width="50dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp" />
 
     <TextView

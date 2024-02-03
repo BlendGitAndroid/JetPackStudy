@@ -15,7 +15,7 @@ class LiveDataBusX {
 
     //存放订阅者
     private Map<String, BusMutiableLiveData<Object>> bus = new HashMap();
-    private static LiveDataBusX liveDataBus = new LiveDataBusX();
+    private static final LiveDataBusX liveDataBus = new LiveDataBusX();
 
     public static LiveDataBusX getInstance() {
         return liveDataBus;

@@ -51,7 +51,7 @@ public class LifeCycleMainActivity extends AppCompatActivity {
                     // 不会被调用release方法进行计数减一
                     Bitmap bitmap = com.bumptech.glide.Glide.with(LifeCycleMainActivity.this)
                             .asBitmap()
-                            .load("https://tse3-mm.cn.bing.net/th/id/OIP.Gzze2RWjGPoKUivyJQvTrQHaE7?pid=Api&rs=1")
+                            .load("https://youimg1.c-ctrip.com/target/100m1b000001bj6if96CC.jpg")
                             .submit().get();
                     Log.e("submit: ", bitmap.toString());
                     runOnUiThread(new Runnable() {

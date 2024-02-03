@@ -1,4 +1,4 @@
-package com.blend.jetpackstudy.databinding.other;
+package com.blend.jetpackstudy.databinding;
 
 import android.os.Bundle;
 
@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.blend.jetpackstudy.R;
-import com.blend.jetpackstudy.databinding.ActivityNewDatabindingMainBinding;
 
 /**
  * DataBinding做了3件事情：
@@ -19,14 +18,14 @@ import com.blend.jetpackstudy.databinding.ActivityNewDatabindingMainBinding;
  * 3.UI到内存。通过初始化设置的监听器，当UI改变的时候回调，然后设置给相应的内存数据，这样又到了内存数据到UI的刷新，
  * 所以为了防止出现死循坏，需要在设置的方法上设置新旧数据不能相等的判断。
  */
-public class NewDatabindingMainActivity extends AppCompatActivity {
+public class DatabindingMainActivity extends AppCompatActivity {
 
-    private ActivityNewDatabindingMainBinding mBinding;
+    private ActivityDatabindingMainBinding mBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_new_databinding_main);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_databinding_main);
 
     }
 }
