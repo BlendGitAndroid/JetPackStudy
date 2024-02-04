@@ -5,10 +5,14 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 
 
-@BindingAdapter("imgUrl")
+@BindingAdapter(
+    value = ["android:imgUrl", "android:gender"],
+    requireAll = false
+)
 fun setUserPhoto(
     iView: ImageView,
-    imageUrl: String?
+    imageUrl: String?,
+    gender: Int?
 ) {
     Glide.with(iView).load(imageUrl)
         .into(iView)

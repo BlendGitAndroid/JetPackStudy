@@ -1,5 +1,4 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -23,12 +22,14 @@
         <EditText
             android:id="@+id/ed_user_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@={user.userName}" />
 
         <EditText
             android:id="@+id/ed_user_id"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@={user.userId}" />
 
         <include
             layout="@layout/activity_databinding_user_data"
@@ -44,6 +45,6 @@
         <ImageView
             android:layout_width="200dp"
             android:layout_height="200dp"
-            app:imgUrl="@{user.userPhoto}" />
+            android:imgUrl="@{user.userPhoto}" />
     </LinearLayout>
 </layout>
