@@ -47,4 +47,9 @@
         style="@style/main_style"
         android:text="DataBinding" />
 
+    <Button
+        android:id="@+id/hit"
+        style="@style/main_style"
+        android:text="Hit" />
+
 </LinearLayout>

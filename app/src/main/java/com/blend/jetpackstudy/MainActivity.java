@@ -8,6 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.blend.jetpackstudy.databinding.DatabindingMainActivity;
+import com.blend.jetpackstudy.hit.HitMainActivity;
 import com.blend.jetpackstudy.lifecycle.LifeCycleMainActivity;
 import com.blend.jetpackstudy.livedata.LiveDataMainActivity;
 import com.blend.jetpackstudy.navigation.NavigationMainActivity;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Button workManager;
     private Button dataBinding;
     private Button viewBinding;
+    private Button hit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         workManager = findViewById(R.id.workManager);
         dataBinding = findViewById(R.id.dataBinding);
         viewBinding = findViewById(R.id.viewBinding);
+        hit = findViewById(R.id.hit);
         lifecycle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +90,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ViewBindingActivity.class));
+            }
+        });
+
+        hit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, HitMainActivity.class));
             }
         });
     }
