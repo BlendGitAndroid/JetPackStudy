@@ -18,11 +18,12 @@ import androidx.appcompat.app.AppCompatActivity
  */
 class DatabindingMainActivity : AppCompatActivity() {
 
-    lateinit var activityMainBinding: ActivityDatabindingMainBinding
+    private lateinit var activityMainBinding: ActivityDatabindingMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activityMainBinding = ActivityDatabindingMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
+        activityMainBinding.lifecycleOwner = this
         activityMainBinding.clickHandlers = ClickHandlers(activityMainBinding)
     }
 
@@ -31,29 +32,20 @@ class DatabindingMainActivity : AppCompatActivity() {
         var TAG = "ClickHandlers"
 
         fun confirm(view: View) {
-            Log.d(TAG, "触发点击事件了")
-            activityMainBinding.user = getUser()
+            Log.d(TAG, "触发点击事件了UserObservable")
+            val user = UserObservable()
+            user.userPhoto = "https://www.baidu.com/img/bd_logo1.png"
+            user.userGender = 1
+            activityMainBinding.user = user
         }
 
-        /**
-         * 获取用户对象, 模拟从网络获取
-         */
-        private fun getUser(): User {
-            return User(getUserName(), getUserId(), "https://www.baidu.com/img/bd_logo1.png", 1)
+        fun confirmLiveData(view: View) {
+            Log.d(TAG, "触发点击事件了UserLiveData")
+            val user = UserLiveData()
+            user.userPhoto.value = "https://www.baidu.com/img/bd_logo1.png"
+            user.userGender.value = 1
+            activityMainBinding.userLiveData = user
         }
 
-        /**
-         * 获取用户名
-         */
-        private fun getUserName(): String? {
-            return activityMainBinding.edUserName.text?.toString()
-        }
-
-        /**
-         * 获取用户id
-         */
-        private fun getUserId(): String? {
-            return activityMainBinding?.edUserId?.text?.toString()
-        }
     }
 }

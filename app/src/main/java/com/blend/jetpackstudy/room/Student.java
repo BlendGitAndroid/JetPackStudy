@@ -5,6 +5,7 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+// @Entity标签用于将Student类与Room中的数据表对应起来。tableName属性可以为数据表设置表名，若不设置，则表名与类名相同。
 @Entity(tableName = "student")
 public class Student {
 

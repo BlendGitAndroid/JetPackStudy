@@ -55,9 +55,10 @@ dependencies {
 
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.2.0'
 
-    implementation 'androidx.room:room-runtime:2.2.5'
+    implementation 'androidx.room:room-runtime:2.3.0'
+    kapt "androidx.room:room-compiler:2.3.0"
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    annotationProcessor 'androidx.room:room-compiler:2.2.5'
 
     implementation 'androidx.work:work-runtime:2.4.0'
 
