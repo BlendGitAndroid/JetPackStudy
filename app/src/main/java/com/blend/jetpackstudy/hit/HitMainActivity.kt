@@ -24,11 +24,16 @@ class HitMainActivity : BaseActivity<ActivityHitBinding>() {
     @Inject
     lateinit var mobilePhone: MobilePhone
 
+    @OkHttpClientStandard
     @Inject
     lateinit var okHttpClient: OkHttpClient
 
+    @Inject
+    lateinit var mainViewModel: MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         userManager.getUserToken()
 
         mobilePhone.dialNumber()
