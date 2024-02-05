@@ -29,6 +29,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".hit.HitMainActivity" />
+        <activity android:name=".flow.FlowMainActivity" />
+        <activity android:name=".page3.Page3MainActivity" />
     </application>
 
 </manifest>

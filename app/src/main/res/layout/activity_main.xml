@@ -52,4 +52,14 @@
         style="@style/main_style"
         android:text="Hit" />
 
+    <Button
+        android:id="@+id/flow"
+        style="@style/main_style"
+        android:text="Flow" />
+
+    <Button
+        android:id="@+id/page3"
+        style="@style/main_style"
+        android:text="Page3" />
+
 </LinearLayout>

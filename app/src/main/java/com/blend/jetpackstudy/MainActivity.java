@@ -8,10 +8,12 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.blend.jetpackstudy.databinding.DatabindingMainActivity;
+import com.blend.jetpackstudy.flow.FlowMainActivity;
 import com.blend.jetpackstudy.hit.HitMainActivity;
 import com.blend.jetpackstudy.lifecycle.LifeCycleMainActivity;
 import com.blend.jetpackstudy.livedata.LiveDataMainActivity;
 import com.blend.jetpackstudy.navigation.NavigationMainActivity;
+import com.blend.jetpackstudy.page3.Page3MainActivity;
 import com.blend.jetpackstudy.room.RoomMainActivity;
 import com.blend.jetpackstudy.viewbinding.ViewBindingActivity;
 import com.blend.jetpackstudy.viewmodel.ViewModelMainActivity;
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private Button dataBinding;
     private Button viewBinding;
     private Button hit;
+    private Button flow;
+    private Button page3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         dataBinding = findViewById(R.id.dataBinding);
         viewBinding = findViewById(R.id.viewBinding);
         hit = findViewById(R.id.hit);
+        flow = findViewById(R.id.flow);
+        page3 = findViewById(R.id.page3);
         lifecycle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,6 +103,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, HitMainActivity.class));
+            }
+        });
+
+        flow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, FlowMainActivity.class));
+            }
+        });
+
+        page3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Page3MainActivity.class));
             }
         });
     }
