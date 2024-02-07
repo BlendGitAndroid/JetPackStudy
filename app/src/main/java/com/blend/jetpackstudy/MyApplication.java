@@ -1,10 +1,8 @@
 package com.blend.jetpackstudy;
 
-import android.app.Application;
-import android.content.Context;
-
 import androidx.lifecycle.ProcessLifecycleOwner;
 
+import com.blend.appbase.BaseApplication;
 import com.blend.jetpackstudy.lifecycle.ApplicationObserver;
 
 import dagger.hilt.android.HiltAndroidApp;
@@ -15,14 +13,11 @@ import dagger.hilt.android.HiltAndroidApp;
  * 是类似的，其本质也是观察者模式。由于我们要观察的是整个应用程序，因此，需要在Application中进行相关代码的编写。
  */
 @HiltAndroidApp
-public class MyApplication extends Application {
-
-    private static Context context;
+public class MyApplication extends BaseApplication {
 
     @Override
     public void onCreate() {
         super.onCreate();
-        context = getApplicationContext();
         ProcessLifecycleOwner.get().getLifecycle().addObserver(new ApplicationObserver());
     }
 }
