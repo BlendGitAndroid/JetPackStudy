@@ -1,17 +1,2 @@
 include ':app'
 rootProject.name = "JetPackStudy"
-include ':appbase'
-include ':module_city'
-include ':module_test_agency'
-include ':module_risk_level'
-include ':module_travel_policy'
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://maven.aliyun.com/repository/public/' }
-        maven { url 'https://maven.aliyun.com/repository/google/' }
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
-    }
-}

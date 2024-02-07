@@ -14,6 +14,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".viewbinding.ViewBindingActivity"></activity>
         <activity android:name=".databinding.DatabindingMainActivity" />
+        <activity android:name=".workmanager.WorkManagerMainActivity" />
         <activity android:name=".room.RoomMainActivity" />
         <activity android:name=".livedata.LiveDataMainActivity" />
         <activity android:name=".viewmodel.ViewModelMainActivity" />
@@ -30,7 +31,6 @@
         <activity android:name=".hit.HitMainActivity" />
         <activity android:name=".flow.FlowMainActivity" />
         <activity android:name=".page3.Page3MainActivity" />
-        <activity android:name=".project.ProjectMainActivity" />
     </application>
 
 </manifest>

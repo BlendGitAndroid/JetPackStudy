@@ -33,6 +33,11 @@
         android:text="Room" />
 
     <Button
+        android:id="@+id/workManager"
+        style="@style/main_style"
+        android:text="WorkManager" />
+
+    <Button
         android:id="@+id/viewBinding"
         style="@style/main_style"
         android:text="ViewBinding" />
@@ -56,10 +61,5 @@
         android:id="@+id/page3"
         style="@style/main_style"
         android:text="Page3" />
-
-    <Button
-        android:id="@+id/project"
-        style="@style/main_style"
-        android:text="项目实战" />
 
 </LinearLayout>
