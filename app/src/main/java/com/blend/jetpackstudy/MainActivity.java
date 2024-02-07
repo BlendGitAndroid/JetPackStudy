@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
         lifecycle = findViewById(R.id.lifecycle);
         navigation = findViewById(R.id.navigation);
         viewModel = findViewById(R.id.viewModel);
