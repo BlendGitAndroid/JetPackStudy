@@ -17,8 +17,6 @@ import com.blend.jetpackstudy.page3.Page3MainActivity;
 import com.blend.jetpackstudy.room.RoomMainActivity;
 import com.blend.jetpackstudy.viewbinding.ViewBindingActivity;
 import com.blend.jetpackstudy.viewmodel.ViewModelMainActivity;
-import com.blend.jetpackstudy.workmanager.WorkManagerMainActivity;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -83,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
         workManager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, WorkManagerMainActivity.class));
             }
         });
         dataBinding.setOnClickListener(new View.OnClickListener() {
